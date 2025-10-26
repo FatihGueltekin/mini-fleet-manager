@@ -1,6 +1,10 @@
 # Mini-Flottenmanager
 
+[![CI/CD Pipeline](https://github.com/FatihGueltekin/mini-fleet-manager/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/FatihGueltekin/mini-fleet-manager/actions)
+
 Eine Angular-Anwendung zur Verwaltung und Überwachung von Flottenaufträgen mit Echtzeit-Filterung, Sortierung und Detailansicht.
+
+**🌐 Live Demo:** https://fatihgueltekin.github.io/mini-fleet-manager
 
 ## 🚀 Features
 
