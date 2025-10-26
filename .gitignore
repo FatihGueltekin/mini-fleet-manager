@@ -41,3 +41,23 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Package lock (optional - je nach Präferenz)
+# package-lock.json
+
+# Mac
+.DS_Store
+**/.DS_Store

@@ -1,0 +1,92 @@
+/* Status Badge Farben */
+.mat-mdc-chip.status-queued {
+  background-color: #ff9800 !important; /* Orange */
+  color: white !important;
+}
+
+.mat-mdc-chip.status-in-progress {
+  background-color: #2196f3 !important; /* Blau */
+  color: white !important;
+}
+
+.mat-mdc-chip.status-completed {
+  background-color: #4caf50 !important; /* Grün */
+  color: white !important;
+}
+
+.mat-mdc-chip.status-failed {
+  background-color: #f44336 !important; /* Rot */
+  color: white !important;
+}
+
+/* Detailansicht Styling */
+.order-details {
+  margin-top: 20px;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  margin-left: auto;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.detail-item {
+  padding: 8px;
+  border-left: 3px solid #3f51b5;
+  background-color: #f5f5f5;
+}
+
+.detail-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #3f51b5;
+}
+
+/* Hover-Effekt für Tabellenzeilen */
+table[mat-table] tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Ausgewählte Zeile hervorheben */
+.selected-row {
+  background-color: #e3f2fd !important;
+}
+
+/* Detail-Zeile Styling */
+.detail-row {
+  height: 0;
+}
+
+.order-detail-row {
+  overflow: hidden;
+}
+
+.order-detail-row .order-details {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-left: 4px solid #3f51b5;
+  margin: 8px 0;
+}
