@@ -1,15 +1,15 @@
 @if (loading()) {
-  <div>Lade Aufträge...</div>
+  <div class="text-center py-8 text-gray-600">Lade Aufträge...</div>
 }
 
 @if (error()) {
-  <div>{{ error() }}</div>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">{{ error() }}</div>
 }
 
 @if (!loading() && !error()) {
-  <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
+  <div class="flex gap-4 items-center mb-4">
     <!-- Reactive Form Filter -->
-    <mat-form-field appearance="fill" style="flex: 1;">
+    <mat-form-field appearance="fill" class="flex-1">
       <mat-label>Suche</mat-label>
       <input matInput [formControl]="searchControl" placeholder="ID, Quelle, Ziel, Fahrzeug">
       <mat-icon matSuffix>search</mat-icon>
@@ -97,23 +97,47 @@
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let order" [attr.colspan]="displayedColumns.length">
         <div class="order-detail-row" [@detailExpand]="order === selectedOrder() ? 'expanded' : 'collapsed'">
-          <div class="order-details">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-              <h3>Auftragsdetails: {{ order.id }}</h3>
+          <div class="order-details mt-5 animate-slideDown">
+            <div class="flex justify-between items-center mb-5">
+              <h3 class="text-xl font-semibold text-indigo-700">Auftragsdetails: {{ order.id }}</h3>
               <button (click)="closeDetails(); $event.stopPropagation()" mat-raised-button color="warn">Schließen</button>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-              <div><strong>Status:</strong> {{ order.status }}</div>
-              <div><strong>Priorität:</strong> {{ order.priority }}</div>
-              <div><strong>Quelle:</strong> {{ order.source }}</div>
-              <div><strong>Ziel:</strong> {{ order.target }}</div>
-              <div><strong>Fahrzeug:</strong> {{ order.vehicleId || 'Nicht zugewiesen' }}</div>
-              <div><strong>Erstellt am:</strong> {{ order.createdAt | date:'dd.MM.yyyy HH:mm' }}</div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Status:</strong>
+                <span>{{ order.status }}</span>
+              </div>
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Priorität:</strong>
+                <span>{{ order.priority }}</span>
+              </div>
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Quelle:</strong>
+                <span>{{ order.source }}</span>
+              </div>
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Ziel:</strong>
+                <span>{{ order.target }}</span>
+              </div>
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Fahrzeug:</strong>
+                <span>{{ order.vehicleId || 'Nicht zugewiesen' }}</span>
+              </div>
+              <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                <strong class="block mb-1 text-indigo-700">Erstellt am:</strong>
+                <span>{{ order.createdAt | date:'dd.MM.yyyy HH:mm' }}</span>
+              </div>
               @if (order.eta) {
-                <div><strong>ETA:</strong> {{ order.eta | date:'dd.MM.yyyy HH:mm' }}</div>
+                <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                  <strong class="block mb-1 text-indigo-700">ETA:</strong>
+                  <span>{{ order.eta | date:'dd.MM.yyyy HH:mm' }}</span>
+                </div>
               }
               @if (getDuration(order)) {
-                <div><strong>Dauer:</strong> {{ getDuration(order) | number:'1.0-0' }} Minuten</div>
+                <div class="p-2 border-l-4 border-indigo-600 bg-gray-100">
+                  <strong class="block mb-1 text-indigo-700">Dauer:</strong>
+                  <span>{{ getDuration(order) | number:'1.0-0' }} Minuten</span>
+                </div>
               }
             </div>
           </div>
@@ -125,8 +149,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
         (click)="selectOrder(row)"
         [class.selected-row]="row === selectedOrder()"
-        style="cursor: pointer;"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+        class="cursor-pointer hover:bg-gray-100 transition-colors"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row h-0"></tr>
   </table>
 
   <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
