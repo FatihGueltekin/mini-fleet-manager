@@ -1,7 +1,5 @@
-
+[
   {
-    "orders": [
-{
     "id": "ORD-2025-000000",
     "status": "queued",
     "priority": "high",
@@ -1938,8 +1936,4 @@
     "createdAt": "2025-09-19T21:06:23.620661+00:00",
     "durationMinutes": 41
   }
-    ]
-  }
-
-  
-  
+]
