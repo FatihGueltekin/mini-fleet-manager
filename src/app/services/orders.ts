@@ -18,8 +18,8 @@ export interface Order {
   providedIn: 'root'
 })
 export class OrdersService {
-  // Verwendet assets/orders.json für Production, localhost:3000 für Development
-  private apiUrl = this.isProduction() ? 'assets/orders.json' : 'http://localhost:3000/orders';
+  // Verwendet /mini-fleet-manager/assets/orders.json für Production, localhost:3000 für Development
+  private apiUrl = this.isProduction() ? '/mini-fleet-manager/assets/orders.json' : 'http://localhost:3000/orders';
 
   constructor(private http: HttpClient) {}
 
