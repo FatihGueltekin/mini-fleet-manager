@@ -18,9 +18,17 @@ export interface Order {
   providedIn: 'root'
 })
 export class OrdersService {
-  private apiUrl = 'http://localhost:3000/orders';
+  // Verwendet assets/orders.json für Production, localhost:3000 für Development
+  private apiUrl = this.isProduction() ? 'assets/orders.json' : 'http://localhost:3000/orders';
 
   constructor(private http: HttpClient) {}
+
+  /**
+   * Prüft ob die App in Production läuft (GitHub Pages)
+   */
+  private isProduction(): boolean {
+    return window.location.hostname.includes('github.io');
+  }
 
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.apiUrl)
