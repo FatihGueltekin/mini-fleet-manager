@@ -1,25 +1,23 @@
-/* Status Badge Farben - Material Chips mit Custom Colors */
 .mat-mdc-chip.status-queued {
-  background-color: #ff9800 !important; /* Orange */
+  background-color: #ff9800 !important;
   color: white !important;
 }
 
 .mat-mdc-chip.status-in-progress {
-  background-color: #2196f3 !important; /* Blau */
+  background-color: #2196f3 !important;
   color: white !important;
 }
 
 .mat-mdc-chip.status-completed {
-  background-color: #4caf50 !important; /* Grün */
+  background-color: #4caf50 !important;
   color: white !important;
 }
 
 .mat-mdc-chip.status-failed {
-  background-color: #f44336 !important; /* Rot */
+  background-color: #f44336 !important;
   color: white !important;
 }
 
-/* Slide Down Animation für Details */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -35,12 +33,10 @@
   animation: slideDown 0.3s ease-in-out;
 }
 
-/* Ausgewählte Zeile hervorheben */
 .selected-row {
   background-color: #e3f2fd !important;
 }
 
-/* Detail-Zeile Styling - für Material Table */
 .detail-row {
   height: 0 !important;
 }
